@@ -1,0 +1,25 @@
+[project]
+name = "live-dj"
+version = "0.1.0"
+description = "A live voice DJ powered by the Gemini Live API — EP1 of the Multimodal Agents Cookbook."
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "google-genai>=1.20",
+    "python-dotenv>=1.0",
+    "websockets>=13",
+    "google-adk>=2.2",
+]
+
+[tool.uv]
+package = false
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

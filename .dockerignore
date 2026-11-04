@@ -1,0 +1,11 @@
+.env
+.env.*
+.git
+.venv
+.pytest_cache
+**/__pycache__
+**/*.pyc
+.adk
+docs
+tests
+assets/tracks

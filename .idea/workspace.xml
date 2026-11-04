@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="56e65092-5894-4a8d-a2e7-3d34810d8c35" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/claudeCodeEditorTabs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/live-dj.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mcp.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.python-version" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adk/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adk/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adk/agent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adk/persona.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adk/server.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adk/tools.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adk_tools/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adk_tools/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adk_tools/agent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adk_tools/frontend/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adk_tools/frontend/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adk_tools/frontend/pcm-processor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adk_tools/persona.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adk_tools/policy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adk_tools/server.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adk_tools/smoke_live.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adk_tools/tools.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/clinic/clinic.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/mira_persona.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tracks.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tracks/01-song.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tracks/02-song.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tracks/03-song.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tracks/04-song.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/DERISK_TEST.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/DESIGN.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/PRODUCT.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/UX.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/architecture-adk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/architecture-adk.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/architecture-tools.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/architecture-tools.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/architecture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/architecture.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/png/01-tts-vs-live.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/png/02-architecture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/png/03-the-loop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/png/04-barge-in.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/svg/01-tts-vs-live.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/svg/02-architecture.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/svg/03-the-loop.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diagrams/svg/04-barge-in.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/screenshot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front_desk/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front_desk/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front_desk/agent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front_desk/clinic.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front_desk/events.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front_desk/frontend/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front_desk/frontend/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front_desk/frontend/pcm-processor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front_desk/frontend/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front_desk/persona.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front_desk/policy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front_desk/server.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front_desk/smoke_live.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front_desk/tools.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front_desk/usage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/pcm-processor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/genai_sdk/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/genai_sdk/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/genai_sdk/gotcha_send_client_content.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/genai_sdk/persona.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/genai_sdk/raw_minimal.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/genai_sdk/raw_server.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/genai_sdk/tools.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_clinic.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_policy_and_tools.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_usage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uv.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;bnbaliga&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/bnbaliga/mortgage-lender-ai-google-adk.git&quot;,
+    &quot;accountId&quot;: &quot;46ebfd9c-1436-46d9-9f56-9095f5862e35&quot;
+  }
+}</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.00000219933506" />
+      <entry key="S2" value="1.2654805565879128" />
+      <entry key="S5" value="5.014589214212571" />
+      <entry key="S10" value="11.736112678858728" />
+      <entry key="S30" value="22.220254860220688" />
+      <entry key="S60" value="27.47850924319379" />
+      <entry key="M2" value="38.71921629222358" />
+      <entry key="M5" value="69.52482985392314" />
+      <entry key="M10" value="94.5576488452252" />
+      <entry key="M15" value="106.24747817024287" />
+      <entry key="M30" value="120.2269961565759" />
+      <entry key="H1" value="128.22841901961982" />
+      <entry key="H2" value="132.51301733631573" />
+      <entry key="H4" value="134.73056569800218" />
+      <entry key="D1" value="136.6181015804979" />
+      <entry key="W1" value="136.9453527232497" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="3.9055753987610634E-229" />
+      <entry key="S2" value="8.152735835448925E-58" />
+      <entry key="S5" value="1.8035436158723914E-23" />
+      <entry key="S10" value="5.697940898848058E-12" />
+      <entry key="S30" value="2.835304371315805E-4" />
+      <entry key="S60" value="0.026853448139222788" />
+      <entry key="M2" value="0.335900610663804" />
+      <entry key="M5" value="1.9265649385650925" />
+      <entry key="M10" value="3.6268924175854083" />
+      <entry key="M15" value="4.5035137797349245" />
+      <entry key="M30" value="5.607239776123275" />
+      <entry key="H1" value="6.26298983475469" />
+      <entry key="H2" value="6.620711649197945" />
+      <entry key="H4" value="6.80757745565471" />
+      <entry key="D1" value="6.9675364731117675" />
+      <entry key="W1" value="6.995352630709196" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.2606164402102803" />
+      <entry key="MS500" value="0.7641904393577762" />
+      <entry key="S2" value="1.1996601692442008" />
+      <entry key="S5" value="4.982726843490095" />
+      <entry key="S10" value="11.715426760918893" />
+      <entry key="S30" value="22.211155215512836" />
+      <entry key="S60" value="27.499655909890507" />
+      <entry key="M2" value="39.04898018228124" />
+      <entry key="M5" value="71.44266078906062" />
+      <entry key="M10" value="98.17695546747873" />
+      <entry key="M15" value="110.7448489369914" />
+      <entry key="M30" value="125.83048807685081" />
+      <entry key="H1" value="134.48933560238967" />
+      <entry key="H2" value="139.13263821317275" />
+      <entry key="H4" value="141.53758365412446" />
+      <entry key="D1" value="143.58554279270408" />
+      <entry key="W1" value="143.9406916953344" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3LeMQAVCJoAEHGpg0wVjI5xBk9K" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/bnbaliga/Projects/Python/mortgage-lender-ai-google-adk&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-ebb3072d7bdf-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.11879.98" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="56e65092-5894-4a8d-a2e7-3d34810d8c35" name="Changes" comment="" />
+      <created>1793810061322</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1793810061322</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

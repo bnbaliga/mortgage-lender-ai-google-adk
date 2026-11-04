@@ -1,0 +1,66 @@
+{
+  "_note": "Fictional clinic + fictional demo patients. No real people, no real PHI. Edit freely.",
+  "clinic": {
+    "name": "Riverside Family Health",
+    "phone": "(555) 010-2200",
+    "address": "410 Riverside Avenue, Suite 200, Springfield",
+    "parking": "Free parking in the garage behind the building; bring your ticket to the front desk for validation.",
+    "hours": {
+      "mon": ["08:00", "17:00"],
+      "tue": ["08:00", "17:00"],
+      "wed": ["08:00", "17:00"],
+      "thu": ["08:00", "19:00"],
+      "fri": ["08:00", "17:00"],
+      "sat": ["09:00", "12:00"],
+      "sun": null
+    },
+    "lunch": ["12:00", "13:00"],
+    "policies": {
+      "cancellation": "Please cancel or reschedule at least 24 hours ahead. Late cancellations and no-shows may carry a $35 fee.",
+      "what_to_bring": "Photo ID, your insurance card, a list of current medications, and any forms you were sent. New patients should arrive 15 minutes early.",
+      "telehealth": "Telehealth visits are by video. You'll get a text link 10 minutes before the visit.",
+      "refills": "Refill requests go to your primary provider and are usually handled within 2 business days. Controlled medications need a visit.",
+      "records": "Medical records requests are handled by our records team — the front desk can't release records over the phone.",
+      "billing": "For billing questions, our billing office is open weekdays 9 to 4 at (555) 010-2299."
+    },
+    "insurance_accepted": [
+      "Aetna", "Blue Cross Blue Shield", "Cigna", "UnitedHealthcare", "Humana",
+      "Kaiser Permanente", "Medicare", "Medicaid", "Tricare", "Oscar"
+    ],
+    "self_pay": "Self-pay is welcome. A standard visit is $120, and a new-patient visit is $180.",
+    "emergency": {
+      "_note": "India. 112 = national emergency (ERSS), 108 = ambulance in most states, Tele-MANAS = the national 24x7 mental-health helpline.",
+      "number": "112",
+      "ambulance": "108",
+      "crisis_line": "Tele-MANAS",
+      "crisis_number": "14416",
+      "crisis_number_alt": "1-800-891-4416"
+    }
+  },
+  "visit_types": {
+    "new_patient":     {"label": "new patient visit",        "minutes": 40, "specialties": ["family medicine"]},
+    "annual_physical": {"label": "annual physical",          "minutes": 40, "specialties": ["family medicine"]},
+    "sick_visit":      {"label": "sick visit",               "minutes": 20, "specialties": ["family medicine", "nurse practitioner"]},
+    "follow_up":       {"label": "follow-up visit",          "minutes": 20, "specialties": ["family medicine", "nurse practitioner", "dermatology"]},
+    "vaccination":     {"label": "vaccination",              "minutes": 15, "specialties": ["nurse practitioner"]},
+    "skin_check":      {"label": "skin check",               "minutes": 30, "specialties": ["dermatology"]},
+    "telehealth":      {"label": "telehealth video visit",   "minutes": 20, "specialties": ["family medicine", "nurse practitioner"]}
+  },
+  "providers": [
+    {"id": "patel",  "name": "Dr. Maya Patel",    "title": "MD", "specialty": "family medicine",    "days": ["mon", "tue", "wed", "thu", "fri"]},
+    {"id": "okafor", "name": "Dr. James Okafor",  "title": "MD", "specialty": "family medicine",    "days": ["mon", "wed", "thu", "sat"], "also": "sees children and adults"},
+    {"id": "ruiz",   "name": "Dr. Elena Ruiz",    "title": "MD", "specialty": "dermatology",        "days": ["tue", "thu"]},
+    {"id": "lee",    "name": "Sam Lee",           "title": "NP", "specialty": "nurse practitioner", "days": ["mon", "tue", "wed", "thu", "fri"], "also": "same-day sick visits and vaccinations"}
+  ],
+  "patients": [
+    {"id": "P1001", "first_name": "Jordan", "last_name": "Rivera", "dob": "1985-03-14", "phone": "555-0142",
+     "insurance": "Aetna", "primary_provider": "patel",
+     "appointments": [{"days_from_today": 6, "time": "10:00", "visit_type": "follow_up", "provider": "patel", "reason": "blood pressure follow-up"}]},
+    {"id": "P1002", "first_name": "Priya", "last_name": "Shah", "dob": "1992-11-02", "phone": "555-0177",
+     "insurance": "Cigna", "primary_provider": "okafor",
+     "appointments": []},
+    {"id": "P1003", "first_name": "Marcus", "last_name": "Chen", "dob": "1978-07-22", "phone": "555-0119",
+     "insurance": "Medicare", "primary_provider": "patel",
+     "appointments": [{"days_from_today": 2, "time": "14:20", "visit_type": "skin_check", "provider": "ruiz", "reason": "mole check"}]}
+  ]
+}
