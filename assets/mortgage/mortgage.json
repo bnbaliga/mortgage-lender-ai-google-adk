@@ -1,0 +1,241 @@
+{
+  "_note": "Fictional mortgage company + fictional demo customers. No real people or data. Edit freely.",
+  "company": {
+    "name": "HomeFirst AI Lending",
+    "tagline": "AI-powered mortgages that save you 0.5-1% in interest",
+    "phone": "(555) 800-LOAN",
+    "nmls_id": "123456",
+    "website": "www.homefirst-ai.com",
+    "address": "500 Finance Plaza, Suite 100, Austin, TX",
+    "hours": {
+      "mon": ["08:00", "20:00"],
+      "tue": ["08:00", "20:00"],
+      "wed": ["08:00", "20:00"],
+      "thu": ["08:00", "20:00"],
+      "fri": ["08:00", "20:00"],
+      "sat": ["09:00", "17:00"],
+      "sun": null
+    },
+    "value_proposition": "Our AI automates the origination process, passing savings of 0.5% to 1% in interest directly to you compared to traditional lenders.",
+    "disclaimers": {
+      "rates": "Rates shown are estimates and subject to change. Final rates depend on credit score, LTV, property type, and market conditions.",
+      "not_commitment": "This is not a loan commitment or approval. All loans subject to underwriting approval.",
+      "licensed": "HomeFirst AI Lending is a licensed mortgage lender. NMLS #123456. Equal Housing Lender."
+    }
+  },
+  "products": {
+    "conventional_30": {
+      "name": "30-Year Fixed Conventional",
+      "description": "Traditional 30-year fixed-rate mortgage with predictable monthly payments",
+      "term_years": 30,
+      "rate_range": [6.25, 7.25],
+      "min_credit_score": 620,
+      "min_down_payment_percent": 3,
+      "max_ltv": 97,
+      "max_dti": 45,
+      "property_types": ["primary", "secondary", "investment"]
+    },
+    "conventional_15": {
+      "name": "15-Year Fixed Conventional",
+      "description": "Build equity faster with lower total interest paid",
+      "term_years": 15,
+      "rate_range": [5.75, 6.75],
+      "min_credit_score": 620,
+      "min_down_payment_percent": 3,
+      "max_ltv": 97,
+      "max_dti": 45,
+      "property_types": ["primary", "secondary", "investment"]
+    },
+    "fha": {
+      "name": "FHA Loan",
+      "description": "Government-backed loan with lower down payment and credit requirements",
+      "term_years": 30,
+      "rate_range": [6.00, 7.00],
+      "min_credit_score": 580,
+      "min_down_payment_percent": 3.5,
+      "max_ltv": 96.5,
+      "max_dti": 50,
+      "property_types": ["primary"],
+      "notes": "Requires mortgage insurance premium (MIP)"
+    },
+    "va": {
+      "name": "VA Loan",
+      "description": "For eligible veterans and service members - no down payment required",
+      "term_years": 30,
+      "rate_range": [5.75, 6.75],
+      "min_credit_score": 580,
+      "min_down_payment_percent": 0,
+      "max_ltv": 100,
+      "max_dti": 50,
+      "property_types": ["primary"],
+      "notes": "Requires VA eligibility. No PMI required."
+    },
+    "jumbo": {
+      "name": "Jumbo Loan",
+      "description": "For loan amounts exceeding conforming limits",
+      "term_years": 30,
+      "rate_range": [6.50, 7.50],
+      "min_credit_score": 700,
+      "min_down_payment_percent": 10,
+      "max_ltv": 90,
+      "max_dti": 43,
+      "property_types": ["primary", "secondary"],
+      "min_loan_amount": 766550
+    },
+    "heloc": {
+      "name": "Home Equity Line of Credit",
+      "description": "Access your home equity with a revolving line of credit",
+      "rate_type": "variable",
+      "rate_range": [7.50, 9.50],
+      "min_credit_score": 680,
+      "max_cltv": 80,
+      "min_equity_percent": 20,
+      "property_types": ["primary"],
+      "draw_period_years": 10,
+      "repayment_period_years": 20,
+      "notes": "Primary residence only in most states. Texas has additional restrictions."
+    },
+    "cash_out_refi": {
+      "name": "Cash-Out Refinance",
+      "description": "Refinance your mortgage and take cash from your equity",
+      "term_years": 30,
+      "rate_range": [6.50, 7.50],
+      "min_credit_score": 620,
+      "max_ltv": 80,
+      "max_dti": 45,
+      "property_types": ["primary", "secondary"],
+      "notes": "Texas has specific rules for cash-out refinances on homesteads."
+    }
+  },
+  "state_regulations": {
+    "TX": {
+      "name": "Texas",
+      "heloc_rules": {
+        "allowed_on_primary": true,
+        "allowed_on_investment": false,
+        "allowed_with_existing_cashout": false,
+        "max_cltv": 80,
+        "cooling_off_period_days": 12,
+        "notes": "Texas Constitution Article XVI, Section 50 restricts home equity lending. HELOCs not allowed on investment properties. Cannot have both a HELOC and cash-out refi on the same property."
+      },
+      "cashout_rules": {
+        "max_ltv": 80,
+        "once_per_year": true,
+        "cooling_off_period_days": 12,
+        "notes": "Texas cash-out refinances have a 12-day cooling off period and 80% LTV cap."
+      }
+    },
+    "CA": {
+      "name": "California",
+      "heloc_rules": {
+        "allowed_on_primary": true,
+        "allowed_on_investment": true,
+        "allowed_with_existing_cashout": true,
+        "max_cltv": 90
+      }
+    },
+    "FL": {
+      "name": "Florida",
+      "heloc_rules": {
+        "allowed_on_primary": true,
+        "allowed_on_investment": true,
+        "allowed_with_existing_cashout": true,
+        "max_cltv": 85
+      }
+    }
+  },
+  "loan_officers": [
+    {
+      "id": "johnson",
+      "name": "Sarah Johnson",
+      "title": "Senior Loan Officer",
+      "nmls_id": "789012",
+      "specialties": ["conventional", "jumbo", "investment"],
+      "languages": ["English", "Spanish"],
+      "available": ["mon", "tue", "wed", "thu", "fri"]
+    },
+    {
+      "id": "williams",
+      "name": "Michael Williams",
+      "title": "Loan Officer",
+      "nmls_id": "789013",
+      "specialties": ["fha", "va", "first_time_buyers"],
+      "languages": ["English"],
+      "available": ["mon", "tue", "wed", "thu", "fri", "sat"]
+    },
+    {
+      "id": "chen",
+      "name": "Lisa Chen",
+      "title": "Senior Loan Officer",
+      "nmls_id": "789014",
+      "specialties": ["heloc", "cash_out_refi", "texas_lending"],
+      "languages": ["English", "Mandarin"],
+      "available": ["mon", "wed", "thu", "fri"]
+    }
+  ],
+  "customers": [
+    {
+      "id": "C1001",
+      "first_name": "David",
+      "last_name": "Martinez",
+      "phone": "555-0188",
+      "email": "david.m@email.com",
+      "properties": [
+        {
+          "id": "prop1",
+          "address": "123 Oak Street, Austin, TX",
+          "type": "primary",
+          "estimated_value": 550000,
+          "mortgage_balance": 100000,
+          "mortgage_type": "cash_out_refi",
+          "equity": 450000
+        },
+        {
+          "id": "prop2",
+          "address": "456 Rental Lane, Houston, TX",
+          "type": "investment",
+          "estimated_value": 320000,
+          "mortgage_balance": 240000,
+          "mortgage_type": "conventional",
+          "equity": 80000
+        }
+      ],
+      "credit_score_range": "740-760"
+    },
+    {
+      "id": "C1002",
+      "first_name": "Jennifer",
+      "last_name": "Thompson",
+      "phone": "555-0199",
+      "email": "jen.t@email.com",
+      "properties": [
+        {
+          "id": "prop3",
+          "address": "789 Maple Ave, Dallas, TX",
+          "type": "primary",
+          "estimated_value": 425000,
+          "mortgage_balance": 280000,
+          "mortgage_type": "conventional",
+          "equity": 145000
+        }
+      ],
+      "credit_score_range": "700-720"
+    },
+    {
+      "id": "C1003",
+      "first_name": "Robert",
+      "last_name": "Kim",
+      "phone": "555-0177",
+      "email": "rob.kim@email.com",
+      "properties": [],
+      "credit_score_range": "680-700",
+      "notes": "First-time homebuyer"
+    }
+  ],
+  "faq": {
+    "heloc_vs_cashout": "A HELOC is a revolving line of credit you draw from as needed, with variable rates. A cash-out refinance replaces your mortgage with a new, larger loan and gives you the difference in cash at a fixed rate.",
+    "current_rates": "Our AI-powered process typically saves borrowers 0.5% to 1% compared to traditional lenders. Current 30-year fixed rates start around 6.25% for well-qualified borrowers.",
+    "approval_time": "Our AI streamlines the process. Pre-approval can happen in minutes, and full approval typically takes 2-3 weeks.",
+    "documents_needed": "Generally: 2 years of tax returns, recent pay stubs, bank statements, and ID. Self-employed borrowers need additional business documentation."
+  }
+}
