@@ -1,0 +1,150 @@
+{
+  "_note": "Indicative rates by product, credit tier, and LTV band. Updated daily. Market benchmarks for comparison.",
+  "as_of": "2026-10-05",
+  "credit_tiers": {
+    "excellent": {"min": 760, "max": 850},
+    "good": {"min": 720, "max": 759},
+    "fair": {"min": 680, "max": 719},
+    "below_average": {"min": 640, "max": 679},
+    "poor": {"min": 300, "max": 639}
+  },
+  "ltv_bands": {
+    "low": {"min": 0, "max": 60},
+    "moderate": {"min": 61, "max": 75},
+    "standard": {"min": 76, "max": 80},
+    "high": {"min": 81, "max": 90},
+    "very_high": {"min": 91, "max": 100}
+  },
+  "products": {
+    "conventional_30": {
+      "name": "30-Year Fixed Conventional",
+      "term_years": 30,
+      "rates": {
+        "excellent": {"low": 5.875, "moderate": 6.000, "standard": 6.125, "high": 6.375, "very_high": 6.625},
+        "good": {"low": 6.125, "moderate": 6.250, "standard": 6.375, "high": 6.625, "very_high": 6.875},
+        "fair": {"low": 6.375, "moderate": 6.500, "standard": 6.625, "high": 6.875, "very_high": 7.125},
+        "below_average": {"low": 6.625, "moderate": 6.750, "standard": 6.875, "high": 7.125, "very_high": 7.375},
+        "poor": {"low": 7.000, "moderate": 7.125, "standard": 7.250, "high": 7.500, "very_high": null}
+      },
+      "market_benchmark": {
+        "rate": 6.75,
+        "source": "Freddie Mac Primary Mortgage Market Survey",
+        "as_of": "2026-10-03"
+      }
+    },
+    "conventional_15": {
+      "name": "15-Year Fixed Conventional",
+      "term_years": 15,
+      "rates": {
+        "excellent": {"low": 5.250, "moderate": 5.375, "standard": 5.500, "high": 5.750, "very_high": 6.000},
+        "good": {"low": 5.500, "moderate": 5.625, "standard": 5.750, "high": 6.000, "very_high": 6.250},
+        "fair": {"low": 5.750, "moderate": 5.875, "standard": 6.000, "high": 6.250, "very_high": 6.500},
+        "below_average": {"low": 6.000, "moderate": 6.125, "standard": 6.250, "high": 6.500, "very_high": 6.750},
+        "poor": {"low": 6.375, "moderate": 6.500, "standard": 6.625, "high": 6.875, "very_high": null}
+      },
+      "market_benchmark": {
+        "rate": 6.15,
+        "source": "Freddie Mac Primary Mortgage Market Survey",
+        "as_of": "2026-10-03"
+      }
+    },
+    "fha": {
+      "name": "FHA Loan",
+      "term_years": 30,
+      "rates": {
+        "excellent": {"low": 5.625, "moderate": 5.750, "standard": 5.875, "high": 6.000, "very_high": 6.125},
+        "good": {"low": 5.875, "moderate": 6.000, "standard": 6.125, "high": 6.250, "very_high": 6.375},
+        "fair": {"low": 6.125, "moderate": 6.250, "standard": 6.375, "high": 6.500, "very_high": 6.625},
+        "below_average": {"low": 6.375, "moderate": 6.500, "standard": 6.625, "high": 6.750, "very_high": 6.875},
+        "poor": {"low": 6.625, "moderate": 6.750, "standard": 6.875, "high": 7.000, "very_high": 7.125}
+      },
+      "market_benchmark": {
+        "rate": 6.50,
+        "source": "Mortgage Bankers Association Weekly Survey",
+        "as_of": "2026-10-02"
+      }
+    },
+    "va": {
+      "name": "VA Loan",
+      "term_years": 30,
+      "rates": {
+        "excellent": {"low": 5.500, "moderate": 5.625, "standard": 5.750, "high": 5.875, "very_high": 6.000},
+        "good": {"low": 5.750, "moderate": 5.875, "standard": 6.000, "high": 6.125, "very_high": 6.250},
+        "fair": {"low": 6.000, "moderate": 6.125, "standard": 6.250, "high": 6.375, "very_high": 6.500},
+        "below_average": {"low": 6.250, "moderate": 6.375, "standard": 6.500, "high": 6.625, "very_high": 6.750},
+        "poor": {"low": 6.500, "moderate": 6.625, "standard": 6.750, "high": 6.875, "very_high": 7.000}
+      },
+      "market_benchmark": {
+        "rate": 6.25,
+        "source": "VA Mortgage Rate Index",
+        "as_of": "2026-10-03"
+      }
+    },
+    "jumbo": {
+      "name": "Jumbo Loan",
+      "term_years": 30,
+      "rates": {
+        "excellent": {"low": 6.125, "moderate": 6.250, "standard": 6.375, "high": 6.625, "very_high": null},
+        "good": {"low": 6.375, "moderate": 6.500, "standard": 6.625, "high": 6.875, "very_high": null},
+        "fair": {"low": 6.625, "moderate": 6.750, "standard": 6.875, "high": 7.125, "very_high": null},
+        "below_average": {"low": 6.875, "moderate": 7.000, "standard": 7.125, "high": 7.375, "very_high": null},
+        "poor": {"low": 7.250, "moderate": 7.375, "standard": 7.500, "high": null, "very_high": null}
+      },
+      "market_benchmark": {
+        "rate": 7.00,
+        "source": "Bankrate Jumbo Mortgage Index",
+        "as_of": "2026-10-03"
+      }
+    },
+    "heloc": {
+      "name": "Home Equity Line of Credit",
+      "rate_type": "variable",
+      "draw_period_years": 10,
+      "repayment_period_years": 20,
+      "rates": {
+        "excellent": {"low": 7.250, "moderate": 7.500, "standard": 7.750, "high": null, "very_high": null},
+        "good": {"low": 7.750, "moderate": 8.000, "standard": 8.250, "high": null, "very_high": null},
+        "fair": {"low": 8.250, "moderate": 8.500, "standard": 8.750, "high": null, "very_high": null},
+        "below_average": {"low": 8.750, "moderate": 9.000, "standard": 9.250, "high": null, "very_high": null},
+        "poor": {"low": 9.250, "moderate": 9.500, "standard": 9.750, "high": null, "very_high": null}
+      },
+      "market_benchmark": {
+        "rate": 8.75,
+        "source": "Bankrate HELOC Rate Index",
+        "as_of": "2026-10-03"
+      }
+    },
+    "cash_out_refi": {
+      "name": "Cash-Out Refinance",
+      "term_years": 30,
+      "rates": {
+        "excellent": {"low": 6.125, "moderate": 6.250, "standard": 6.375, "high": null, "very_high": null},
+        "good": {"low": 6.375, "moderate": 6.500, "standard": 6.625, "high": null, "very_high": null},
+        "fair": {"low": 6.625, "moderate": 6.750, "standard": 6.875, "high": null, "very_high": null},
+        "below_average": {"low": 6.875, "moderate": 7.000, "standard": 7.125, "high": null, "very_high": null},
+        "poor": {"low": 7.250, "moderate": 7.375, "standard": 7.500, "high": null, "very_high": null}
+      },
+      "market_benchmark": {
+        "rate": 7.00,
+        "source": "Freddie Mac Refinance Rate Survey",
+        "as_of": "2026-10-03"
+      }
+    },
+    "rate_term_refi": {
+      "name": "Rate-and-Term Refinance",
+      "term_years": 30,
+      "rates": {
+        "excellent": {"low": 5.750, "moderate": 5.875, "standard": 6.000, "high": 6.250, "very_high": 6.500},
+        "good": {"low": 6.000, "moderate": 6.125, "standard": 6.250, "high": 6.500, "very_high": 6.750},
+        "fair": {"low": 6.250, "moderate": 6.375, "standard": 6.500, "high": 6.750, "very_high": 7.000},
+        "below_average": {"low": 6.500, "moderate": 6.625, "standard": 6.750, "high": 7.000, "very_high": 7.250},
+        "poor": {"low": 6.875, "moderate": 7.000, "standard": 7.125, "high": 7.375, "very_high": 7.625}
+      },
+      "market_benchmark": {
+        "rate": 6.50,
+        "source": "Freddie Mac Refinance Rate Survey",
+        "as_of": "2026-10-03"
+      }
+    }
+  }
+}

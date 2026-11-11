@@ -12,7 +12,7 @@ from typing import Optional
 
 from google.adk.tools.tool_context import ToolContext
 
-from mortgage.mortgage import MortgageError, MortgageStore, format_currency, format_rate
+from mortgage.mortgage import MortgageError, MortgageStore, format_currency, format_rate, spoken_time
 
 store = MortgageStore.load()
 
@@ -40,13 +40,16 @@ async def get_company_info(topic: str) -> dict:
         topic: one of hours, contact, products, rates, value_proposition, disclaimers, or "all".
     """
     c = store.info
-    hours = [f"{d.title()}: " + (f"{store.spoken_time(h[0])} to {store.spoken_time(h[1])}" if h else "closed")
-             for d, h in store.hours.items()] if hasattr(store, 'spoken_time') else []
+    # Build hours list from store.hours using the spoken_time helper
+    hours = [
+        f"{d.title()}: " + (f"{spoken_time(h[0])} to {spoken_time(h[1])}" if h else "closed")
+        for d, h in store.hours.items()
+    ]
 
     products_list = [f"{p['name']}: {p['description']}" for p in store.products.values()]
 
     facts = {
-        "hours": hours or "Monday to Friday 8am to 8pm, Saturday 9am to 5pm",
+        "hours": hours,
         "contact": {"phone": c["phone"], "website": c.get("website", ""), "address": c["address"]},
         "products": products_list,
         "value_proposition": c.get("value_proposition", ""),
@@ -108,15 +111,31 @@ async def check_heloc_eligibility(state: str, property_type: str,
 
     Args:
         state: two-letter state code (e.g., "TX", "CA") or state name.
-        property_type: "primary" for primary residence, "investment" for rental/investment property.
+        property_type: the caller's own words describing the property use — e.g., "rental",
+            "investment property", "my home", "primary residence", "vacation home". The system
+            will normalize these to standard categories.
         has_existing_cashout: true if there's an existing cash-out refinance on the property.
         property_value: estimated property value in dollars (optional, for calculating max HELOC amount).
         current_mortgage_balance: current mortgage balance in dollars (optional).
     """
-    result = store.check_heloc_eligibility(
-        state, property_type, has_existing_cashout,
-        property_value, current_mortgage_balance
-    )
+    from mortgage.mortgage import MortgageError
+    try:
+        result = store.check_heloc_eligibility(
+            state, property_type, has_existing_cashout,
+            property_value, current_mortgage_balance
+        )
+    except MortgageError as e:
+        return _err(e)
+
+    # Handle needs_review status (state has no rules on file)
+    if result.get("status") == "needs_review":
+        return {
+            "result": "ok",
+            "eligible": None,
+            "state": result["state"],
+            "status": "needs_review",
+            "say": result["say"]
+        }
 
     if result["eligible"]:
         response = {"result": "ok", "eligible": True, "state": result["state"]}
@@ -144,13 +163,21 @@ async def check_state_regulations(state: str, product_type: str = "heloc") -> di
         state: two-letter state code (e.g., "TX", "CA") or state name.
         product_type: "heloc" or "cashout" for specific rules.
     """
-    rules = store.get_state_rules(state, product_type)
-    if not rules:
-        return {"result": "ok", "state": state.upper(),
-                "message": f"No specific restrictions on file for {state.upper()}. Standard federal guidelines apply.",
-                "say": "Let them know standard guidelines apply and offer to connect with a loan officer for details."}
+    from mortgage.mortgage import MortgageError
+    try:
+        state_code, rules = store.get_state_rules(state, product_type)
+    except MortgageError as e:
+        return _err(e)
 
-    return {"result": "ok", "state": state.upper(), "rules": rules}
+    if not rules:
+        return {
+            "result": "ok",
+            "state": state_code,
+            "status": "needs_review",
+            "say": "Explain you don't have specific regulations on file for that state and offer to connect them with a licensed loan officer who can provide accurate guidance."
+        }
+
+    return {"result": "ok", "state": state_code, "rules": rules}
 
 
 async def get_rate_estimate(product_type: str, credit_score: int = 720,
@@ -359,6 +386,124 @@ async def calculate_equity(property_value: float, mortgage_balance: float) -> di
     }
 
 
+# ------------------------------------------------------------- regulation search ---
+
+async def search_regulations(question: str, state: str = "") -> dict:
+    """Search approved regulatory documents for information about mortgage rules.
+
+    Use this for general regulatory questions or to find citations. For eligibility
+    decisions, use check_heloc_eligibility or check_state_regulations instead.
+
+    Args:
+        question: Natural language question about mortgage regulations.
+        state: Optional state filter (e.g., "TX", "CA") or "federal" for federal regulations.
+    """
+    from mortgage.knowledge import search
+
+    try:
+        passages = search(question, k=3, jurisdiction=state)
+    except Exception as e:
+        return {
+            "result": "error",
+            "code": "search_failed",
+            "message": f"Regulation search unavailable: {e}",
+            "say": "Let them know you couldn't search regulations right now and offer to connect with a loan officer."
+        }
+
+    if not passages:
+        return {
+            "result": "ok",
+            "passages": [],
+            "say": "No matching regulations found. Answer based on your training if confident, otherwise offer to connect with a loan officer."
+        }
+
+    return {
+        "result": "ok",
+        "passages": [p.to_dict() for p in passages],
+        "say": "Answer only from these passages, mention the source briefly, and offer a loan officer if they don't answer the question."
+    }
+
+
+# ------------------------------------------------------------- option comparison ---
+
+async def compare_options(state: str, property_value: float, current_mortgage_balance: float,
+                          credit_score: int = 720, cash_needed: float = 0) -> dict:
+    """Compare eligible mortgage options (HELOC, cash-out refi, rate/term refi).
+
+    Shows side-by-side comparison with rates, monthly payments, and potential savings
+    vs market benchmarks. Filters out ineligible options based on state rules and LTV.
+
+    Args:
+        state: Two-letter state code (e.g., "TX", "CA") or state name.
+        property_value: Estimated current property value in dollars.
+        current_mortgage_balance: Current mortgage balance in dollars.
+        credit_score: Borrower's credit score (default 720).
+        cash_needed: Amount of cash the borrower wants to access (optional).
+    """
+    try:
+        result = store.compare_options(
+            property_value=property_value,
+            current_balance=current_mortgage_balance,
+            credit_score=credit_score,
+            state=state,
+            cash_needed=cash_needed
+        )
+    except MortgageError as e:
+        return _err(e)
+
+    # Format the response for the model
+    options = result.get("options", [])
+    formatted_options = []
+    for opt in options:
+        formatted = {
+            "product": opt["product"],
+            "name": opt["name"],
+            "rate": format_rate(opt["rate"]),
+            "amount": format_currency(opt["amount"]),
+            "monthly_payment": format_currency(opt["monthly_payment"]),
+            "payment_type": opt["payment_type"]
+        }
+        if "term_years" in opt:
+            formatted["term_years"] = opt["term_years"]
+        if "cash_at_closing" in opt:
+            formatted["cash_at_closing"] = format_currency(opt["cash_at_closing"])
+        if "note" in opt:
+            formatted["note"] = opt["note"]
+        if "savings_vs_market" in opt:
+            formatted["savings_vs_market"] = opt["savings_vs_market"]
+        if opt.get("benchmark"):
+            formatted["market_rate"] = format_rate(opt["benchmark"])
+        formatted_options.append(formatted)
+
+    response = {
+        "result": "ok",
+        "state": result["state"],
+        "property_value": format_currency(result["property_value"]),
+        "current_balance": format_currency(result["current_balance"]),
+        "equity": format_currency(result["equity"]),
+        "current_ltv": f"{result['current_ltv']:.1f}%",
+        "options": formatted_options,
+        "disclaimer": result["disclaimer"]
+    }
+
+    if result.get("heloc_issues"):
+        response["heloc_not_available"] = result["heloc_issues"]
+
+    if formatted_options:
+        response["say"] = (
+            "Present each option clearly with the rate, monthly payment, and any savings vs market. "
+            "Explain the differences between payment types (interest-only vs P&I). "
+            "Remind them these are estimates subject to full application review."
+        )
+    else:
+        response["say"] = (
+            "Explain that based on the information provided, the options are limited. "
+            "Offer to connect them with a loan officer to discuss alternatives."
+        )
+
+    return response
+
+
 ALL_TOOLS = [
     get_company_info,
     get_mortgage_products,
@@ -370,4 +515,6 @@ ALL_TOOLS = [
     transfer_to_loan_officer,
     answer_faq,
     calculate_equity,
+    search_regulations,
+    compare_options,
 ]

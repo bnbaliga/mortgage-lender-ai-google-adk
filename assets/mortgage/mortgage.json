@@ -115,14 +115,20 @@
         "allowed_on_investment": false,
         "allowed_with_existing_cashout": false,
         "max_cltv": 80,
-        "cooling_off_period_days": 12,
+        "closing_notice_days": 12,
+        "rescission_days": 3,
+        "source": "Texas Constitution Art. XVI, Sec. 50",
+        "last_reviewed": "2026-01-15",
         "notes": "Texas Constitution Article XVI, Section 50 restricts home equity lending. HELOCs not allowed on investment properties. Cannot have both a HELOC and cash-out refi on the same property."
       },
       "cashout_rules": {
         "max_ltv": 80,
         "once_per_year": true,
-        "cooling_off_period_days": 12,
-        "notes": "Texas cash-out refinances have a 12-day cooling off period and 80% LTV cap."
+        "closing_notice_days": 12,
+        "rescission_days": 3,
+        "source": "Texas Constitution Art. XVI, Sec. 50",
+        "last_reviewed": "2026-01-15",
+        "notes": "Texas cash-out refinances have a 12-day notice period before closing and 80% LTV cap."
       }
     },
     "CA": {
@@ -131,7 +137,9 @@
         "allowed_on_primary": true,
         "allowed_on_investment": true,
         "allowed_with_existing_cashout": true,
-        "max_cltv": 90
+        "max_cltv": 90,
+        "source": "California Civil Code",
+        "last_reviewed": "2026-01-15"
       }
     },
     "FL": {
@@ -140,7 +148,9 @@
         "allowed_on_primary": true,
         "allowed_on_investment": true,
         "allowed_with_existing_cashout": true,
-        "max_cltv": 85
+        "max_cltv": 85,
+        "source": "Florida Statutes",
+        "last_reviewed": "2026-01-15"
       }
     }
   },
@@ -152,7 +162,9 @@
       "nmls_id": "789012",
       "specialties": ["conventional", "jumbo", "investment"],
       "languages": ["English", "Spanish"],
-      "available": ["mon", "tue", "wed", "thu", "fri"]
+      "available": ["mon", "tue", "wed", "thu", "fri"],
+      "hours": ["09:00", "17:00"],
+      "timezone": "America/Chicago"
     },
     {
       "id": "williams",
@@ -161,7 +173,9 @@
       "nmls_id": "789013",
       "specialties": ["fha", "va", "first_time_buyers"],
       "languages": ["English"],
-      "available": ["mon", "tue", "wed", "thu", "fri", "sat"]
+      "available": ["mon", "tue", "wed", "thu", "fri", "sat"],
+      "hours": ["09:00", "17:00"],
+      "timezone": "America/Chicago"
     },
     {
       "id": "chen",
@@ -170,7 +184,9 @@
       "nmls_id": "789014",
       "specialties": ["heloc", "cash_out_refi", "texas_lending"],
       "languages": ["English", "Mandarin"],
-      "available": ["mon", "wed", "thu", "fri"]
+      "available": ["mon", "wed", "thu", "fri"],
+      "hours": ["09:00", "17:00"],
+      "timezone": "America/Chicago"
     }
   ],
   "customers": [

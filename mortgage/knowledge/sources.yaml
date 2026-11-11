@@ -1,0 +1,72 @@
+# Approved regulatory sources for mortgage knowledge pipeline
+# Only passages from these sources (with status: approved) are searchable.
+# Change detection: if a source's content hash changes, status becomes pending_review.
+
+sources:
+  # Texas Constitution - Home Equity Lending
+  - id: tx_constitution_art16_sec50
+    name: "Texas Constitution Article XVI Section 50"
+    url: "https://statutes.capitol.texas.gov/Docs/CN/htm/CN.16.htm#16.50"
+    jurisdiction: TX
+    topics:
+      - home_equity
+      - heloc
+      - cashout_refinance
+    doc_type: constitution
+    notes: "Primary source for Texas home equity lending restrictions"
+
+  # Texas Administrative Code - Home Equity Interpretations
+  - id: tx_tac_7_153
+    name: "7 TAC Chapter 153 - Home Equity Lending"
+    url: "https://texreg.sos.state.tx.us/public/readtac$ext.ViewTAC?tac_view=4&ti=7&pt=8&ch=153"
+    jurisdiction: TX
+    topics:
+      - home_equity
+      - heloc
+      - regulatory_interpretation
+    doc_type: administrative_code
+    notes: "Texas Finance Commission / OCCC interpretations of home equity rules"
+
+  # CFPB Regulation Z - HELOCs
+  - id: cfpb_reg_z_heloc
+    name: "CFPB Regulation Z - Home Equity Lines of Credit"
+    url: "https://www.consumerfinance.gov/rules-policy/regulations/1026/40/"
+    jurisdiction: federal
+    topics:
+      - heloc
+      - disclosure
+      - consumer_protection
+    doc_type: federal_regulation
+    notes: "Federal HELOC disclosure and consumer protection requirements"
+
+  # CFPB Regulation Z - Rescission Rights
+  - id: cfpb_reg_z_rescission
+    name: "CFPB Regulation Z - Right of Rescission"
+    url: "https://www.consumerfinance.gov/rules-policy/regulations/1026/23/"
+    jurisdiction: federal
+    topics:
+      - rescission
+      - consumer_protection
+      - home_equity
+    doc_type: federal_regulation
+    notes: "3-day right to cancel for home equity transactions"
+
+  # Local policies folder
+  - id: internal_policies
+    name: "Internal Lending Policies"
+    path: "docs/policies/"
+    jurisdiction: internal
+    topics:
+      - policy
+      - procedures
+      - compliance
+    doc_type: internal
+    notes: "Company-specific lending policies and procedures"
+
+# Default settings for ingestion
+settings:
+  user_agent: "HomeFirstAI-KnowledgeBot/1.0 (compliance research)"
+  rate_limit_seconds: 2.0
+  chunk_size_tokens: 800
+  chunk_overlap_tokens: 100
+  respect_robots_txt: true
